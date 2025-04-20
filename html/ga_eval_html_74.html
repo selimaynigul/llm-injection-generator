@@ -4,6 +4,6 @@
     <title>XSS Test</title>
   </head>
   <body>
-    >onload=alert();\u0061lert();type="image" /
+    onerror=javascript:alert();onload=alert();onerror=alert();confirm(1);src=x 
   </body>
 </html>

@@ -4,6 +4,6 @@
     <title>XSS Test</title>
   </head>
   <body>
-    type="text/x-scriptlet" <iframe/onerror=alert();data="data:text/html,<option/
+    confirm(1);onerror=javascript:alert();<img/<input #
   </body>
 </html>
