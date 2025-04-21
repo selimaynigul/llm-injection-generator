@@ -14,6 +14,10 @@ from keras.layers import Dropout
 from keras import backend as K
 from util import Utilty
 from keras.layers import Input  # Gerekirse en üste ekle
+import glob
+# LLM tetikle
+from llm_util import generate_payload
+from context_extractor import extract_context_from_url
 
 
 # Type of printing.
@@ -206,12 +210,28 @@ class GAN:
     # Mean of two vectors.
     def vector_mean(self, vector1, vector2):
         return (vector1 + vector2)/2
+    
+
 
     # Main control.
     def main(self):
         # Define saving path.
         gan_save_path = self.util.join_path(self.result_dir, self.gan_result_file.replace('*', self.obj_browser.name))
         vec_save_path = self.util.join_path(self.result_dir, self.gan_vec_result_file.replace('*', self.obj_browser.name))
+
+        """ 
+        url = "file:///C:/Users/Selim/OneDrive%20-%20Gebze%20Teknik%20%C3%9Cniversitesi/Masa%C3%BCst%C3%BC/okul/injection-generator/my_generator/test.html"
+        context = extract_context_from_url(url)
+        payload = generate_payload(context)
+        print("[+] LLM Payload Generated:", payload)
+         """
+
+        def load_ga_results(result_dir):
+            result_files = glob.glob(os.path.join(result_dir, "ga_result_*.csv"))
+            df_all = pd.concat([pd.read_csv(f) for f in result_files], ignore_index=True)
+            return df_all
+        
+        df_sigs = load_ga_results(self.result_dir)
 
         # Start generating injection code.
         if os.path.exists(self.weight_path):
@@ -225,10 +245,13 @@ class GAN:
             for idx in range(self.max_explore_codes_num):
                 self.util.print_message(NOTE, '{}/{} Explore valid injection code.'.format(idx + 1,
                                                                                            self.max_explore_codes_num))
+                
                 # Generate injection codes.
                 noise = np.array([np.random.uniform(-1, 1, self.input_size) for _ in range(1)])
                 generated_codes = self.generator.predict(noise, verbose=0)
                 str_html = self.util.transform_gene_num2str(self.df_genes, self.transform_code2gene(generated_codes[0]))
+
+                print("[+] Trying:", str_html)  # 👈 bu satırı buraya koy
 
                 # Evaluate injection code using selenium.
                 for eval_place in self.eval_place_list:
@@ -354,7 +377,8 @@ class GAN:
         self.util.print_message(NOTE, 'Done generation of injection codes using Generative Adversarial Networks.')
 
 
-""" if __name__ == '__main__':
+
+if __name__ == '__main__':
     from selenium import webdriver
     from jinja2 import Environment, FileSystemLoader
     import configparser
@@ -383,4 +407,3 @@ class GAN:
     gan.main()
 
     browser.close()
-  """
