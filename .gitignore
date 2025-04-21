@@ -23,3 +23,5 @@ ENV/
 # HTML tidy and web driver folders
 tidy/
 web_drivers/
+
+.env

@@ -1,7 +1,11 @@
 import openai
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # OPENAI_API_KEY'i ortam değişkeninden alabilir ya da doğrudan buraya yazabilirsin (güvenli değil)
-openai.api_key = "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"  # güvenli kullanım için .env dosyasından alınabilir
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_payload(context):
     prompt = f"""
