@@ -14,14 +14,16 @@ You are an expert in web security testing. Your task is to craft a proof-of-conc
 Target page details:
 {context}
 
-Generate exactly twenty minimal working XSS payload that would be most likely to succeed, assuming a vulnerable context.
+Generate exactly 15 **minimal and well-formed** working XSS payloads that would be most likely to succeed, assuming a vulnerable context.
+Write them in a single line, separated by newline. No explanation, no line breaks, no bullet points. Just one single string.
 
-Respond with only the payload string. No explanation.
+Respond with **only** the payloads string.
 """
+
 
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # dilersen gpt-4 seçebilirsin
+            model="gpt-4",  # dilersen gpt-4 seçebilirsin
             messages=[
                 {"role": "system", "content": "You are a penetration tester."},
                 {"role": "user", "content": prompt}

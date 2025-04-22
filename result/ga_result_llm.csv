@@ -1,13 +1,14 @@
 eval_place,sig_vector,sig_string
-body_tag,,"1. ""><script>alert(1)</script>
-<img src=x onerror=alert(1)>
-<svg><script>alert(1)</script>
-';alert(1);//
-<iframe src=""javascript:alert(1)"">
-<script>alert(String.fromCharCode(88,83,83))</script>
-<body/onload=alert(1)>
-<script>alert`1`</script>
-<svg/onload=alert(1)>
-<img src=""x:x"" onerror=""alert(1)"">
-<svg><animate onbegin=alert(1)>
-<img src=1 href=1 onerror=""alert(1"
+body_tag,"[0, 1, 2]","""<script>alert('XSS')</script>"
+body_tag,[3],<img src='x' onerror='alert(1)'>
+body_tag,"[0, 1, 2]",'><script>alert('XSS')</script>
+body_tag,"[0, 1, 2]","""><script>alert('XSS')</script>"
+body_tag,[3],'><img src='x' onerror='alert(1)'>
+body_tag,[3],"""><img src='x' onerror='alert(1)'>"
+body_tag,[4],"<body onload='alert(""XSS"")'>"
+body_tag,[5],<svg onload='alert(1)'>
+body_tag,"[6, 0, 1, 2]",<input type='text' value=''><script>alert('XSS')</script>
+body_tag,"[6, 3]",<input type='text' value=''><img src='x' onerror='alert(1)'>
+body_tag,[7],<div style='background:url(javascript:alert(1))'>
+body_tag,[8],<iframe src='javascript:alert(1)'>
+body_tag,[9],<a href='
