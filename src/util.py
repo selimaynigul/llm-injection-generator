@@ -42,7 +42,7 @@ class Utilty:
         full_path = os.path.dirname(os.path.abspath(__file__))
         config = configparser.ConfigParser()
         try:
-            config.read(os.path.join(full_path, 'config.ini'))
+            config.read(os.path.join(full_path, '../config/config.ini'))
         except FileExistsError as err:
             self.print_message(FAIL, 'File exists error: {}'.format(err))
             sys.exit(1)

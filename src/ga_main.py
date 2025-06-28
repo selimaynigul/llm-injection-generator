@@ -10,7 +10,7 @@ import locale
 import configparser
 import pandas as pd
 from decimal import Decimal
-from util import Utilty
+from src.util import Utilty
 
 # Type of printing.
 OK = 'ok'         # [*]
@@ -53,7 +53,7 @@ class GeneticAlgorithm:
         full_path = os.path.dirname(os.path.abspath(__file__))
         config = configparser.ConfigParser()
         try:
-            config.read(self.util.join_path(full_path, 'config.ini'))
+            config.read(self.util.join_path(full_path, '../config/config.ini'))
         except FileExistsError as e:
             self.util.print_message(FAIL, 'File exists error: {}'.format(e))
             sys.exit(1)

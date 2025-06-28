@@ -3,13 +3,13 @@ import os
 import sys
 import configparser
 from selenium import webdriver
-from util import Utilty
-from ga_main import GeneticAlgorithm
+from src.util import Utilty
+from src.ga_main import GeneticAlgorithm
+from src.gan_main import GAN
+from src.llm_mode import main as llm_main
 from jinja2 import Environment, FileSystemLoader
-from gan_main import GAN
 from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import NoAlertPresentException
-from llm_mode import main as llm_main
 
 # Type of printing.
 OK = 'ok'         # [*]
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     full_path = os.path.dirname(os.path.abspath(__file__))
     config = configparser.ConfigParser()
     try:
-        config.read(util.join_path(full_path, 'config.ini'))
+        config.read(util.join_path(full_path, '../config/config.ini'))
     except FileExistsError as e:
         util.print_message(FAIL, 'File exists error: {}'.format(e))
         sys.exit(1)

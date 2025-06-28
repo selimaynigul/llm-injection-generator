@@ -12,7 +12,7 @@ from keras.layers import Dense, Activation
 from keras.layers import LeakyReLU
 from keras.layers import Dropout
 from keras import backend as K
-from util import Utilty
+from src.util import Utilty
 from keras.layers import Input  # Gerekirse en üste ekle
 import glob
 
@@ -36,7 +36,7 @@ class GAN:
         full_path = os.path.dirname(os.path.abspath(__file__))
         config = configparser.ConfigParser()
         try:
-            config.read(self.util.join_path(full_path, 'config.ini'))
+            config.read(self.util.join_path(full_path, '../config/config.ini'))
         except FileExistsError as e:
             self.util.print_message(FAIL, 'File exists error: {}'.format(e))
             sys.exit(1)

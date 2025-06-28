@@ -1,85 +1,87 @@
-# LLM-Based Injection Generator (Pre-LLM Version)
+# 🧬 Injection Code Generator using Genetic Algorithms and GANs
 
-A hybrid XSS injection generator using Genetic Algorithms and GANs.
+## 📘 Project Title
 
-Note: LLM support is planned but not yet added.
+Injection Code Generator using Genetic Algorithms and Generative Adversarial Networks (GANs)
 
-## Features
+## 📄 Project Description
 
-- Genetic Algorithm for initial payload generation
-- GAN for generating new variants
-- Selenium-based validation
-- HTML syntax validation via Tidy
+This project focuses on the automatic generation of HTML/JavaScript injection codes. It leverages **Genetic Algorithms (GA)** to evolve candidate payloads based on their structural validity and execution behavior, and utilizes **Generative Adversarial Networks (GANs)** to synthetically generate realistic-looking injection patterns. The system evaluates the generated code using Tidy for HTML compliance and Selenium for browser-based behavior analysis.
 
-## Setup
+The injection codes are generated in two steps.
 
-### 1. Clone and Install
+1.  Gather the components of injection codes.
+2.  Create some injection codes using Genetic Algorithm.
+3.  Generate numerous injection codes using Generative Adversarial Networks.
+
+## 🛠️ Installation Instructions
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/yourusername/injection-generator.git
+   cd injection-generator/my_generator
+   ```
+
+2. **Get the web driver for selenium**:
+   [!] This project uses the Google chrome driver.
+
+   You have to download the [chrome driver](http://chromedriver.chromium.org/downloads) for selenium.  
+    And you have to move downloaded driver file to `drivers` directory.
+
+```
+  PS C:\injection-generator\PayloadGenerator> mkdir drivers
+  PS C:\injection-generator\PayloadGenerator> mv chromedriver.exe drivers
+  PS C:\injection-generator\PayloadGenerator> ls .\drivers\
+```
+
+3. **Get html checker (tidy)**:
+   [!] This project uses the `tidy 5.4.0 win64`.
+
+And you have to move the `tidy.exe` file to the `C:\tools\tidy` directory (the default path is set as `C:\tools\tidy` in the `config.ini` file to avoid permission issues that may occur if it is placed directly under the project’s `tools` folder).
+
+4. **Install required packages**:
 
 ```bash
-git clone https://github.com/yourusername/injection-generator.git
-cd injection-generator
-python -m venv venv
-venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Dependencies
+6. **Run the project from the outermost (root) directory**:
 
-- Put `chromedriver.exe` into `web_drivers/`
-- Put `tidy.exe` into `tidy/` folder
-
-### 3. Run
+Make sure you are in the root directory of the project (`injection-generator/my_generator`) before running the following command:
 
 ```bash
-python generator.py
+python -m src.generator
 ```
 
-## Output Files
+## ▶️ Usage Examples (Optional)
 
-- `result/ga_result_*.csv` – GA outputs
-- `result/gan_result_*.csv` – Valid GAN outputs
-- `result/gan_result_vec_*.csv` – Synthesized GAN outputs
+- Example command:
+  ```bash
+  python -m src.generator
+  ```
+- Outputs:
+  - `result/ga_result_*.csv`: Genetic Algorithm results.
+  - `result/gan_result_*.csv`: GAN-generated payloads.
+  - `html/`: Evaluated HTML files.
 
-## HTML Template
+## 🛠️ Troubleshooting
 
-Used file: `html/eval_template.html`
+- **PermissionError when running tidy**:
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>XSS Test</title>
-  </head>
-  <body>
-    {{ body_tag }}
-  </body>
-</html>
-```
+  - Run the terminal **as Administrator** or ensure `tidy.exe` has execution permissions.
 
-## Gene List Format
+- **ModuleNotFoundError (e.g., 'src')**:
 
-Each row in `gene_list.csv` is a token or tag:
+  - Always run from the root directory using `python -m src.generator`.
 
-```
-<script>
-</script>
-<img src=x onerror=alert(1)>
-...
-```
+- **NoSuchDriverException from Selenium**:
 
-## .gitignore
+  - Make sure `chromedriver.exe` is compatible with your Chrome version and is in the correct path.
 
-```
-tidy/
-web_drivers/
-__pycache__/
-*.pyc
-*.weights.h5
-result/
-.DS_Store
-```
+## 🙌 Acknowledge
 
-## Future Work
-
-- Add LLM guidance module
-- Use LLMs for better mutation or payload scoring
+- **Course**: Secure Software Development – CS XXX
+- **Instructor**: Dr. [Instructor Name]
+- **University**: Gebze Technical University
+- **Contributors**: Selim Aynigül, Beyza Acar, Berkehan Burak Şahin

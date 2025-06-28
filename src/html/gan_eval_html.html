@@ -5,7 +5,7 @@
   </head>
   <body>
     <!-- Injection noktası buraya -->
-    <div onmouseover='alert("XSS7")'><img src=x onerror=alert('XSS2')><iframe src='javascript:alert("XSS6");'>
+    <object data='javascript:alert("XSS8");'><embed src='javascript:alert(1);'><svg onload='alert("XSS5")'>
 
     <form>
       <input type="text" name="search" />

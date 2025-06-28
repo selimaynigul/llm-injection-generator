@@ -12,7 +12,7 @@ st.markdown("Bu arayüz üzerinden Genetic Algorithm ve GAN modellerini başlata
 
 # Config oku
 config = configparser.ConfigParser()
-config.read("config.ini")
+config.read("../config/config.ini")
 max_try_num = int(config['Genetic']['max_try_num'])
 
 def run_command(command):

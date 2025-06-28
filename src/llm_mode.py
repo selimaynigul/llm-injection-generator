@@ -1,13 +1,13 @@
 # llm_mode.py
-from context_extractor import extract_context_from_url
-from llm_util import generate_payload
+from src.context_extractor import extract_context_from_url
+from src.llm_util import generate_payload
 import pandas as pd
 import os
 import csv
 import re
 
 
-GENE_FILE = "gene/gene_list.csv"
+GENE_FILE = os.path.join("src", "gene", "gene_list.csv")
 
 def load_gene_list():
     if not os.path.exists(GENE_FILE):
