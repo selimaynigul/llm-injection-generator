@@ -15,9 +15,7 @@ from keras import backend as K
 from util import Utilty
 from keras.layers import Input  # Gerekirse en üste ekle
 import glob
-# LLM tetikle
-from llm_util import generate_payload
-from context_extractor import extract_context_from_url
+
 
 
 # Type of printing.
@@ -217,14 +215,7 @@ class GAN:
     def main(self):
         # Define saving path.
         gan_save_path = self.util.join_path(self.result_dir, self.gan_result_file.replace('*', self.obj_browser.name))
-        vec_save_path = self.util.join_path(self.result_dir, self.gan_vec_result_file.replace('*', self.obj_browser.name))
-
-        """ 
-        url = "file:///C:/Users/Selim/OneDrive%20-%20Gebze%20Teknik%20%C3%9Cniversitesi/Masa%C3%BCst%C3%BC/okul/injection-generator/my_generator/test.html"
-        context = extract_context_from_url(url)
-        payload = generate_payload(context)
-        print("[+] LLM Payload Generated:", payload)
-         """
+        vec_save_path = self.util.join_path(self.result_dir, self.gan_vec_result_file.replace('*', self.obj_browser.name))      
 
         def load_ga_results(result_dir):
             result_files = glob.glob(os.path.join(result_dir, "ga_result_*.csv"))

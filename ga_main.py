@@ -150,6 +150,7 @@ class GeneticAlgorithm:
                                                           indivisual,
                                                           obj_ga.genom_list,
                                                           str(int_score)))
+                                                          
         return int_score, 0
 
     # Select elite individual.
@@ -308,5 +309,16 @@ class GeneticAlgorithm:
         str_best_individual = str_best_individual.replace('%s', ' ').replace('&quot;', '"').replace('%comma', ',')
         self.util.print_message(NOTE, 'Best individual : "{}"'.format(str_best_individual))
         self.util.print_message(NOTE, 'Done creation of injection codes using Genetic Algorithm.')
+
+
+        # Remove all generated eval HTML files after testing
+        try:
+            for filename in os.listdir(self.html_dir):
+                if filename.startswith('ga_eval_html') and filename.endswith('.html'):
+                    full_path = os.path.join(self.html_dir, filename)
+                    os.remove(full_path)
+                    self.util.print_message(OK, f'Removed temp HTML: {full_path}')
+        except Exception as e:
+            self.util.print_exception(e, 'Could not delete ga_eval_html files.')
 
         return self.result_list

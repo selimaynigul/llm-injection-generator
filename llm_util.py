@@ -23,7 +23,7 @@ Respond with **only** the payloads string.
 
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4",  # dilersen gpt-4 seçebilirsin
+            model="gpt-4",  
             messages=[
                 {"role": "system", "content": "You are a penetration tester."},
                 {"role": "user", "content": prompt}

@@ -12,6 +12,10 @@ from selenium.common.exceptions import NoAlertPresentException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from selenium.common.exceptions import NoAlertPresentException, UnexpectedAlertPresentException
+import time
+
+
 # Printing colors.
 OK_BLUE = '\033[94m'      # [*]
 NOTE_GREEN = '\033[92m'   # [+]
@@ -119,115 +123,45 @@ class Utilty:
                 .replace('%comma', ',').replace('&apos;', "'")
         return indivisual
 
-   # Check individual using selenium.
-    def check_individual_selenium1(self, obj_browser, eval_html_path):
-        int_score = 0
-        error_flag = False
 
-        try:
-            obj_browser.get(eval_html_path)
-        except Exception:
-            try:
-                WebDriverWait(obj_browser, 0.1).until(EC.alert_is_present())
-                alert = obj_browser.switch_to.alert
-                print("[+] Alert found on load:", alert.text)
-                alert.accept()
-                int_score = 1
-                error_flag = True
-            except (NoAlertPresentException, TimeoutException):
-                error_flag = True
-            return int_score, error_flag
-
-        try:
-            obj_browser.implicitly_wait(0.1)
-
-            try:
-                ActionChains(obj_browser).move_by_offset(10, 10).perform()
-            except:
-                pass
-
-            obj_browser.refresh()
-
-            WebDriverWait(obj_browser, 0.1).until(EC.alert_is_present())
-            alert = obj_browser.switch_to.alert
-            print("[+] Alert found after interaction:", alert.text)
-            alert.accept()
-            int_score = 1
-
-        except TimeoutException:
-            print("[-] No alert appeared after interaction.")
-        except NoAlertPresentException:
-            print("[-] Alert expected but not found.")
-        except Exception as e:
-            print("[!] Unexpected exception while checking alert:", str(e))
-            error_flag = True
-
-        return int_score, error_flag
-    
-
-    def check_individual_selenium1(self, obj_browser, eval_html_path):
-        int_score = 0
-        error_flag = False
-
-        try:
-            obj_browser.get(eval_html_path)
-        except Exception:
-            try:
-                alert = obj_browser.switch_to.alert
-                print("[+] Alert found on load:", alert.text)
-                alert.accept()
-                int_score = 1
-                error_flag = True
-            except:
-                error_flag = True
-            return int_score, error_flag
-
-        try:
-            try:
-                ActionChains(obj_browser).move_by_offset(10, 10).perform()
-            except:
-                pass
-
-            obj_browser.refresh()
-
-            alert = obj_browser.switch_to.alert
-            print("[+] Alert found after interaction:", alert.text)
-            alert.accept()
-            int_score = 1
-
-        except:
-            pass
-
-        return int_score, error_flag
-    
 
     def check_individual_selenium(self, obj_browser, eval_html_path):
-        # Evaluate running script using selenium.
         int_score = 0
         error_flag = False
 
-        # Refresh browser for next evaluation.
         try:
-            obj_browser.get(eval_html_path)
-        except Exception as e:
-            obj_browser.switch_to.alert.accept()
-            error_flag = True
-            return int_score, error_flag
+            # Sayfayı yükle
+            obj_browser.get("file://" + eval_html_path)
+            time.sleep(0.5)  # Yeterli yükleme süresi tanı
 
-        # Judge JavaScript (include event handler).
-        try:
-            obj_browser.refresh()
-            ActionChains(obj_browser).move_by_offset(10, 10).perform()
-            obj_browser.refresh()
-        except Exception as e:
-            # Run script.
+            # Eğer alert varsa: puan ver ve kapat
             try:
-                WebDriverWait(obj_browser, 1).until(EC.alert_is_present())
+                WebDriverWait(obj_browser, 2).until(EC.alert_is_present())
                 alert = obj_browser.switch_to.alert
-                print("[+] Alert found:", alert.text)
+                print(f"[+] Alert found: {alert.text}")
                 alert.accept()
                 int_score = 1
             except (NoAlertPresentException, TimeoutException):
                 pass
+
+            # Basit mouse interaction (trigger event handlers gibi)
+            try:
+                ActionChains(obj_browser).move_by_offset(10, 10).perform()
+            except Exception:
+                pass
+
+        except UnexpectedAlertPresentException as e:
+            try:
+                alert = obj_browser.switch_to.alert
+                print(f"[+] Alert found (unexpected): {alert.text}")
+                alert.accept()
+                int_score = 1
+            except:
+                self.print_message(WARNING, "Alert vardı ama kapanamadı.")
+                error_flag = True
+
+        except Exception as e:
+            self.print_exception(e, "Browser evaluation hatası.")
+            error_flag = True
 
         return int_score, error_flag

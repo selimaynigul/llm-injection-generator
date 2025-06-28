@@ -8,7 +8,8 @@ from ga_main import GeneticAlgorithm
 from jinja2 import Environment, FileSystemLoader
 from gan_main import GAN
 from selenium.webdriver.chrome.service import Service
-
+from selenium.common.exceptions import NoAlertPresentException
+from llm_mode import main as llm_main
 
 # Type of printing.
 OK = 'ok'         # [*]
@@ -76,6 +77,9 @@ if __name__ == "__main__":
         obj_browser.set_window_size(window_width, window_height)
         obj_browser.set_window_position(position_width, position_height)
 
+         # LLM ile payload üret ve GA için gerekli dosyaları hazırla
+        llm_main()
+
         # Create a few individuals from gene list.
         for idx in range(max_try_num):
             util.print_message(NOTE, '{}/{} Create individuals using Genetic Algorithm.'.format(idx + 1, max_try_num))
@@ -86,6 +90,12 @@ if __name__ == "__main__":
         util.print_message(NOTE, 'Generate individual using Generative Adversarial Networks.')
         gan = GAN(template, obj_browser)
         gan.main()
+
+        try:
+            alert = obj_browser.switch_to.alert
+            alert.dismiss()  # veya alert.accept()
+        except NoAlertPresentException:
+            pass
 
         # Close browser.
         obj_browser.close()

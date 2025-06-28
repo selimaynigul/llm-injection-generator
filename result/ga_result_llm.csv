@@ -1,14 +1,12 @@
 eval_place,sig_vector,sig_string
-body_tag,"[0, 1, 2]","""<script>alert('XSS')</script>"
-body_tag,[3],<img src='x' onerror='alert(1)'>
-body_tag,"[0, 1, 2]",'><script>alert('XSS')</script>
-body_tag,"[0, 1, 2]","""><script>alert('XSS')</script>"
-body_tag,[3],'><img src='x' onerror='alert(1)'>
-body_tag,[3],"""><img src='x' onerror='alert(1)'>"
-body_tag,[4],"<body onload='alert(""XSS"")'>"
-body_tag,[5],<svg onload='alert(1)'>
-body_tag,"[6, 0, 1, 2]",<input type='text' value=''><script>alert('XSS')</script>
-body_tag,"[6, 3]",<input type='text' value=''><img src='x' onerror='alert(1)'>
-body_tag,[7],<div style='background:url(javascript:alert(1))'>
-body_tag,[8],<iframe src='javascript:alert(1)'>
-body_tag,[9],<a href='
+body_tag,"[0, 1, 2]","""<script>alert('XSS1')</script>"
+body_tag,[14],"""<img src='x' onerror='alert(""XSS2"")'>"
+body_tag,[15],"""<body onload='alert(""XSS3"")'>"
+body_tag,[54],"""<input type='text' value='' onfocus='alert(""XSS4"")' autofocus>"
+body_tag,[55],"""<svg onload='alert(""XSS5"")'>"
+body_tag,[29],"""<iframe src='javascript:alert(""XSS6"");'>"
+body_tag,[56],"""<div style='behavior:url(#default#time2);' onbegin='alert(""XSS7"")'>"
+body_tag,[57],"""<object data='javascript:alert(""XSS8"");'>"
+body_tag,[58],"""<embed src='javascript:alert(""XSS9"");'>"
+body_tag,[59],"""<img dynsrc='javascript:alert(""XSS10"");'>"
+body_tag,[13],"""<layer src='javascript:"
