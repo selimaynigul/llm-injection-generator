@@ -68,7 +68,7 @@ def split_payload_into_generics(payload):
 
 def main():
     # Test edilecek URL veya lokal dosya
-    url = "file:///C:/Users/Selim/OneDrive%20-%20Gebze%20Teknik%20%C3%9Cniversitesi/Masa%C3%BCst%C3%BC/okul/injection-generator/my_generator/test.html"
+    url = "file://../tests/test.html"
 
     # İçeriği al
     context = extract_context_from_url(url)

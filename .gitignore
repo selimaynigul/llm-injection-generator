@@ -25,3 +25,7 @@ tidy/
 web_drivers/
 
 .env
+
+# Ignore specific executables
+tools/tidy.exe
+drivers/chromedriver.exe

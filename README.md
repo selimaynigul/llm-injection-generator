@@ -54,6 +54,21 @@ Make sure you are in the root directory of the project (`injection-generator/my_
 python -m src.generator
 ```
 
+## Operation check environment
+
+- Hardware
+  - OS: Windows 10
+  - CPU: Intel(R) Core(TM) i7-6500U 2.50GHz
+  - GPU: None
+  - Memory: 8.0GB
+- Software
+  - Python 3.6.0
+  - Jinja2==2.10
+  - Keras==2.1.6
+  - numpy==1.13.3
+  - pandas==0.23.0
+  - selenium==3.14.0
+
 ## ▶️ Usage Examples (Optional)
 
 - Example command:
