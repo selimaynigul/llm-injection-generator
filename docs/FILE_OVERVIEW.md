@@ -275,7 +275,7 @@ This module integrates a Language Model (LLM) into the injection code generation
 - Prompt a language model to generate potential injection payloads
 - Parse and split those payloads into generic reusable components ("genes")
 - Update the gene list used by the GA and map payloads into gene vectors
-- Save results in `ga_result_llm.csv` to feed into GA and GAN modules
+- Save results in `ga_result_chrome.csv` to feed into GA and GAN modules
 
 ---
 
@@ -328,7 +328,7 @@ Returns a cleaned list of string tokens representing individual gene components.
      - Converts the payload to a gene vector using gene indexes
 
 4. **Result Saving**
-   - Saves the processed payloads to `result/ga_result_llm.csv` in the same format expected by the GA:
+   - Saves the processed payloads to `result/ga_result_chrome.csv` in the same format expected by the GA:
      - `eval_place` (hardcoded as `body_tag`)
      - `sig_vector` (index list of genes)
      - `sig_string` (original payload)
@@ -337,7 +337,7 @@ Returns a cleaned list of string tokens representing individual gene components.
 
 ### Output
 
-- **`result/ga_result_llm.csv`**  
+- **`result/ga_result_chrome.csv`**  
   File containing LLM-generated payloads and their encoded gene vectors, formatted for downstream use in Genetic Algorithms and GANs.
 
 ---

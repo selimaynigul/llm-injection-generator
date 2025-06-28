@@ -122,7 +122,8 @@ def main():
     os.makedirs("result", exist_ok=True)
 
     # Save results in GA format to a CSV file
-    result_path = os.path.join("result", "ga_result_llm.csv")
+    browser_name = "chrome"  # or dynamically detect
+    result_path = os.path.join("result", f"ga_result_{browser_name}.csv")
     df = pd.DataFrame(results, columns=["eval_place", "sig_vector", "sig_string"])
     df.to_csv(result_path, index=False)
 

