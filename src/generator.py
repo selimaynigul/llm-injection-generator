@@ -1,4 +1,34 @@
 # -*- coding: utf-8 -*-
+"""
+generator.py
+This script automates the process of generating and evaluating web payloads using different AI techniques and web browsers.
+It is designed to help with tasks such as security testing or automated web content generation.
+Main Features:
+--------------
+- Reads configuration settings from a config.ini file.
+- Supports multiple web browsers (Chrome, Firefox, Internet Explorer) using Selenium WebDriver.
+- Uses Jinja2 templates to generate HTML files for testing.
+- Integrates three main AI modules:
+    1. LLM (Large Language Model) for generating payloads.
+    2. Genetic Algorithm (GA) for evolving and optimizing payloads.
+    3. Generative Adversarial Network (GAN) for creating more diverse payloads.
+- Automatically manages browser windows and handles browser alerts.
+- Provides clear, labeled console output for each step (OK, NOTE, FAIL, WARNING).
+How it works:
+-------------
+1. Loads configuration and sets up paths and parameters.
+2. For each browser specified in the configuration:
+    - Launches the browser and sets its window size and position.
+    - Runs the LLM module to generate initial payloads.
+    - Uses the Genetic Algorithm to create and evolve payloads over several iterations.
+    - Applies the GAN to further generate and refine payloads.
+    - Handles any browser alerts that may appear.
+    - Closes the browser when done.
+Intended Audience:
+------------------
+- Users interested in automated web testing, security research, or AI-driven web content generation.
+- No advanced programming knowledge required; the script is designed to be easy to follow and modify.
+"""
 import os
 import sys
 import configparser
@@ -77,7 +107,7 @@ if __name__ == "__main__":
         obj_browser.set_window_size(window_width, window_height)
         obj_browser.set_window_position(position_width, position_height)
 
-         # LLM ile payload üret ve GA için gerekli dosyaları hazırla
+        # Generate payload with LLM and prepare necessary files for GA
         llm_main()
 
         # Create a few individuals from gene list.
@@ -93,7 +123,7 @@ if __name__ == "__main__":
 
         try:
             alert = obj_browser.switch_to.alert
-            alert.dismiss()  # veya alert.accept()
+            alert.dismiss()  # or alert.accept()
         except NoAlertPresentException:
             pass
 
