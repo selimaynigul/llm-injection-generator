@@ -1,10 +1,11 @@
-# 🧬 Injection Code Generator using Genetic Algorithms and GANs
+# 🧬 PayloadGenerator - Injection Code Generator using Genetic Algorithms and GANs
 
-## 📘 Project Title
+- **Course**: CSE473 - Network and Information Security
+- **Instructor**: Dr. Salih Sarp
+- **University**: Gebze Technical University
+- **Contributors**: Selim Aynigül, Beyza Acar, Berkehan Burak Şahin
 
-Injection Code Generator using Genetic Algorithms and Generative Adversarial Networks (GANs)
-
-## 📄 Project Description
+## 📄 Description
 
 This project focuses on the automatic generation of HTML/JavaScript injection codes. It leverages **Genetic Algorithms (GA)** to evolve candidate payloads based on their structural validity and execution behavior, and utilizes **Generative Adversarial Networks (GANs)** to synthetically generate realistic-looking injection patterns. The system evaluates the generated code using Tidy for HTML compliance and Selenium for browser-based behavior analysis.
 
@@ -14,7 +15,7 @@ The injection codes are generated in two steps.
 2.  Create some injection codes using Genetic Algorithm.
 3.  Generate numerous injection codes using Generative Adversarial Networks.
 
-## 🛠️ Installation Instructions
+## 🛠️ Installation
 
 1. **Clone the repository**:
 
@@ -69,7 +70,7 @@ python -m src.generator
   - pandas==0.23.0
   - selenium==3.14.0
 
-## ▶️ Usage Examples (Optional)
+## ▶️ Usage Examples
 
 - Example command:
   ```bash
@@ -93,10 +94,3 @@ python -m src.generator
 - **NoSuchDriverException from Selenium**:
 
   - Make sure `chromedriver.exe` is compatible with your Chrome version and is in the correct path.
-
-## 🙌 Acknowledge
-
-- **Course**: Secure Software Development – CS XXX
-- **Instructor**: Dr. [Instructor Name]
-- **University**: Gebze Technical University
-- **Contributors**: Selim Aynigül, Beyza Acar, Berkehan Burak Şahin
